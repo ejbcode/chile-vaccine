@@ -12,7 +12,6 @@ export default function Home() {
         <link href="/favicon.ico" rel="icon" />
         <html lang="es" />
       </Head>
-
       <Header />
       <Main />
     </>
