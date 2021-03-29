@@ -1,3 +1,13 @@
+# Log process
+- Install Next.js
+- Create tsconfig.ts to enable typescript
+- Install 'npm install --save-dev typescript @types/react @types/node'
+- npm run dev to autocreate the tsconfig
+- Install linter of the projects
+- Styles with sass `npm i node-sass`
+`npm i -D prettier @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks`
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
