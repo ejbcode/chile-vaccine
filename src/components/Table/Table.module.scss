@@ -1,43 +1,87 @@
-.listofcards {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 650px;
-  justify-content: center;
+.container {
+  margin: 0 auto;
+}
+.table {
+  margin: 0 auto;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 2px solid #111;
+  // box-shadow: rgb(210, 239, 253) 14px 14px;
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  max-width: 1000px;
+  width: 100%;
 }
 
-.card {
+.table th {
+  border-bottom: 2px solid #555;
+  border-right: 1px solid #ccc;
+  padding: 4px;
+}
+
+.table tr {
+  background: #fff;
+}
+
+.table tr.totales {
+  background-color: #d2effd;
+}
+
+.table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.table tbody > tr > td {
+  border-right: 1px solid #eee;
+  text-align: right;
+  padding: 4px 12px 4px;
+}
+
+.table tbody > tr > td:first-child {
+  font-weight: bold;
+}
+
+.table tbody > tr > td:last-child {
+  border-right: 0;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #333;
+}
+
+.table thead th:hover {
+  background-color: #d2effd;
+}
+
+.table tbody tr:hover {
+  background-color: #6cd0ff;
+  cursor: pointer;
+}
+
+.table .mobileData {
+  display: none;
+}
+
+.table .mobileData span {
+  display: block;
   text-align: center;
-  border-radius: 5px;
-  min-width: 25rem;
-  padding: 1rem 2rem;
-  position: relative;
-  margin: 1.5rem 1.5rem;
-  flex: 1 1 auto;
-  background: white;
-  box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.21);
+  margin-bottom: 5px;
 }
 
-.card img {
-  width: 50px;
-}
+@media (max-width: 600px) {
+  .table tr td:not(:first-child):not(.mobileData) {
+    display: none;
+  }
 
-.cardNumber {
-  font-size: 3rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin: 0px 0;
-  letter-spacing: 1px;
-  color: rgb(19, 125, 211);
-}
+  .table tr td:first-child {
+    text-align: center;
+  }
 
-.cardFooter {
-  line-height: 0.5;
-  font-size: 1.3rem;
-}
+  .table tr th {
+    display: none;
+  }
 
-.footer {
-  color: #ffffff;
-  background-color: #333333;
-  text-align: center;
-  padding: 1em;
+  .table .mobileData {
+    display: block;
+  }
 }

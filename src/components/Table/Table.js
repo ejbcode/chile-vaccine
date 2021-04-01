@@ -3,8 +3,12 @@ import UseAxios from "../../utils/UseAxios";
 import csvjson from "./csvjson.json";
 import csvtojson from "csvtojson";
 import csvToJSON from "../../utils/csvToJSON";
-import transformCsvToJson from "./converting";
-const { populationOver18 } = require("./bbdd.json");
+import joinJsonintoDataForTable from "../../utils/JSONToRegionTable";
+import { useMemo } from "react";
+import { useTable, useSortBy } from "react-table";
+import MOCK_DATA from "./MOCK_DATA.json";
+import { COLUMNS } from "./columns";
+import InsideTable from "./InsideTable";
 
 const Table = () => {
   const URL =
@@ -20,10 +24,10 @@ const Table = () => {
   }
 
   const dataInJson = csvToJSON(data);
-  const newData = transformCsvToJson(dataInJson);
+  const newData = joinJsonintoDataForTable(dataInJson);
   console.log(newData);
 
-  return <div>Table</div>;
+  return <InsideTable MOCK_DATA={newData} />;
 };
 
 export default Table;
