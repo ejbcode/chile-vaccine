@@ -12,7 +12,7 @@ export default function UseAxios({URL}) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const {data} = await axios(`${URL}`);
+        const {data} = await axios(URL);
         setData(data);
       } catch (error) {
         setError(error);

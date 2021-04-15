@@ -3,10 +3,11 @@ import { useTable, useSortBy } from "react-table";
 import { COLUMNS } from "./columns";
 import styles from "./Table.module.scss";
 
-function InsideTable({ MOCK_DATA }) {
+function InsideTable({ DATA }) {
+
   const columns = useMemo(() => COLUMNS, []);
 
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => DATA, []);
 
   const tableInstance = useTable(
     {
@@ -20,6 +21,7 @@ function InsideTable({ MOCK_DATA }) {
     getTableProps,
     getTableBodyProps,
     headerGroups,
+    footerGroups,
     rows,
     prepareRow,
   } = tableInstance;
@@ -41,17 +43,43 @@ function InsideTable({ MOCK_DATA }) {
       </thead>
 
       <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
-              })}
-            </tr>
-          );
-        })}
+        {rows.filter(item => item.id !== "0")
+          .map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                })}
+              </tr>
+            );
+          })}
       </tbody>
+      <tfoot  {...getTableBodyProps()}>
+
+        {rows.filter(item => item.id === "0")
+          .map(row => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+                })}
+              </tr>
+            )
+          })}
+      </tfoot>
+
+      <tfoot  {...getTableBodyProps()}>
+
+        {footerGroups.map(group => (
+          <tr  {...group.getFooterGroupProps()}>
+            {group.headers.map(column => (
+              <td className={styles.totales} {...column.getFooterProps()}>{column.render('Footer')}</td>
+            ))}
+          </tr>
+        ))}
+      </tfoot>
     </table>
   );
 }

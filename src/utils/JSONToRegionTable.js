@@ -23,11 +23,14 @@ function joinJsonintoDataForTable(json) {
   const secondDoseData = objectSegunda.map((item) => {
     const keys = Object.entries(item);
     const lastKeys = keys[keys.length - 1];
-    const secondDose = parseInt(lastKeys[1]);
 
+    const secondDose = parseInt(lastKeys[1]);
+    const lastDate = lastKeys[0]
+   
     return {
       Region: item.Region,
       secondDose,
+      lastDate
     };
   });
 

@@ -1,3 +1,4 @@
+import React from "react";
 import ListOfCards from "../components/ListOfCards";
 import Table from "../components/Table";
 import styles from "./Main.module.scss";
@@ -5,26 +6,16 @@ import styles from "./Main.module.scss";
 const Main: React.FC = () => {
   return (
     <main className={styles.container}>
-      <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <h1>
-              Chile
-              <br />
-              Vacuna
-            </h1>
-            <h6>
-              Contador en tiempo real de la vacunación contra el Covid-19 en el
-              país
-            </h6>
-          </div>
+      {/* <PlayGround /> */}
+      <section className={styles.board}>
+        <h2>Distribucion General en el país</h2>
+        <p>Ultima actualización: 11/04/2021 10pm</p>
+        <div className={styles.boardContent}>
           <ListOfCards />
         </div>
-        <div className={styles.heroRight}>
-          <img src="./image/51.png" />
-        </div>
       </section>
-      <section>
+      <section className={styles.board}>
+        <h2>Distribución general por regiones</h2>
         <Table />
       </section>
     </main>
