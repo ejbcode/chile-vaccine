@@ -1,23 +1,18 @@
-.container {
-  margin: 3rem auto;
-}
 .table {
-  margin: 2rem auto;
-  background: #fafafa;
-  border-radius: 8px;
-  border: 2px solid #111;
-  // box-shadow: rgb(210, 239, 253) 14px 14px;
+  background: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #111;
   font-size: 1.2rem;
   margin-bottom: 4rem;
   max-width: 1000px;
   width: 100%;
+  box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.21);
 }
 
 .table th {
   border-bottom: 2px solid #555;
   border-right: 1px solid #ccc;
   padding: 4px;
-  border: red solid;
 }
 
 .table tr {
@@ -25,16 +20,24 @@
 }
 
 .totales {
-  background-color: red;
+  background-color: #e2e2e2;
+  border-right: 1px solid #eee;
+  text-align: center;
+  padding: 4px 12px 4px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  background-color: #e2e2e2;
 }
 
 .table tr:nth-child(even) {
-  background-color: #fafafa;
+  background-color: #dfdfdf;
 }
 
 .table tbody > tr > td {
   border-right: 1px solid #eee;
   text-align: right;
+  text-align: center;
+
   padding: 4px 12px 4px;
 }
 
@@ -84,5 +87,12 @@
 
   .table .mobileData {
     display: block;
+  }
+
+  .totales {
+    display: none;
+  }
+  .table tbody > tr > td:first-child {
+    font-size: 1.5rem;
   }
 }

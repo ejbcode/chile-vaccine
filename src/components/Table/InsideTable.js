@@ -4,10 +4,10 @@ import { COLUMNS } from "./columns";
 import styles from "./Table.module.scss";
 
 function InsideTable({ DATA }) {
-
   const columns = useMemo(() => COLUMNS, []);
+  const dataWithOutTotal = DATA.filter((item) => item.Region !== "Total");
 
-  const data = useMemo(() => DATA, []);
+  const data = useMemo(() => dataWithOutTotal, []);
 
   const tableInstance = useTable(
     {
@@ -43,39 +43,34 @@ function InsideTable({ DATA }) {
       </thead>
 
       <tbody {...getTableBodyProps()}>
-        {rows.filter(item => item.id !== "0")
-          .map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+        {rows.map((row) => {
+          prepareRow(row);
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map((cell) => {
+                return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
+              })}
+              <td className={styles.mobileData}>
+                {row.cells.map((cell, index) => {
+                  return (
+                    <span key={index}>
+                      {`${headerGroups[0].headers[index].Header} - ${cell.value}`}
+                    </span>
+                  );
                 })}
-              </tr>
-            );
-          })}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
-      <tfoot  {...getTableBodyProps()}>
 
-        {rows.filter(item => item.id === "0")
-          .map(row => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
-                })}
-              </tr>
-            )
-          })}
-      </tfoot>
-
-      <tfoot  {...getTableBodyProps()}>
-
-        {footerGroups.map(group => (
-          <tr  {...group.getFooterGroupProps()}>
-            {group.headers.map(column => (
-              <td className={styles.totales} {...column.getFooterProps()}>{column.render('Footer')}</td>
+      <tfoot>
+        {footerGroups.map((group) => (
+          <tr {...group.getFooterGroupProps()}>
+            {group.headers.map((column) => (
+              <td className={styles.totales} {...column.getFooterProps()}>
+                {column.render("Footer")}
+              </td>
             ))}
           </tr>
         ))}

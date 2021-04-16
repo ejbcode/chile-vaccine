@@ -8,7 +8,6 @@ import CardSection from "../src/components/CardSection";
 import csvToJSON from "../src/utils/csvToJSON";
 import { GetStaticProps } from "next";
 import joinJsonintoDataForTable from "../src/utils/JSONToRegionTable";
-import Main from "../src/Main";
 import Table from "../src/components/Table";
 interface Props {
   allStats: stats[];
@@ -29,7 +28,6 @@ const Home: React.FC<Props> = ({ allStats }) => {
         <CardSection cardStats={cardStats} />
         <Table allStats={allStats} />
       </main>
-      <article className={styles.article}>sdsd</article>
     </>
   );
 };
@@ -43,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const newData = joinJsonintoDataForTable(dataInJson);
 
   return {
-    // revalidate: 10, An optional amount in seconds after which a page re-generation can occur. If not neccesary if the data of insurances is always the same
+    revalidate: 43200,
     props: {
       allStats: newData,
     },

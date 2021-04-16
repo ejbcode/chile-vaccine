@@ -1,18 +1,29 @@
 import styles from "./CardSection.module.scss";
 import { formatingDate } from "../../utils/formatingDate";
 
-const CardSection = ({ cardStats }) => {
+interface cardStat {
+  Region: "Total";
+  firstDose: number;
+  lastDate: string;
+  objectPopulation: number;
+  secondDose: number;
+}
+
+interface Props {
+  cardStats: cardStat[];
+}
+
+const CardSection: React.FC<Props> = ({ cardStats }) => {
   const { firstDose, objectPopulation, secondDose, lastDate } = cardStats[0];
-  const formatNumber = (number) => {
+  const formatNumber = (number: number) => {
     return new Intl.NumberFormat("es-ES").format(number);
   };
   const totalVaccine = firstDose * 1 + secondDose * 1;
-  console.log(totalVaccine);
   const percPopulation = ((firstDose / 15200376) * 100).toFixed(2);
 
   return (
     <section>
-      <h2>Distribucion General en el país</h2>
+      <h2>Distribución General en el país</h2>
       <p>Ultima actualización: {formatingDate(lastDate)}</p>
       <div className={styles.listofcards}>
         <div className={styles.card}>
