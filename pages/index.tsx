@@ -1,20 +1,19 @@
-import Head from "next/head";
-import Header from "../src/Header";
-import styles from "../styles/Home.module.scss";
+import Head from 'next/head';
+import {GetStaticProps} from 'next';
+import axios from 'axios';
 
-import axios from "axios";
-import CardSection from "../src/components/CardSection";
-
-import csvToJSON from "../src/utils/csvToJSON";
-import { GetStaticProps } from "next";
-import joinJsonintoDataForTable from "../src/utils/JSONToRegionTable";
-import Table from "../src/components/Table";
+import csvToJSON from '../src/utils/csvToJSON';
+import Table from '../src/components/Table';
+import styles from '../styles/Home.module.scss';
+import CardSection from '../src/components/CardSection';
+import joinJsonintoDataForTable from '../src/utils/JSONToRegionTable';
+import Header from '../src/Header';
 interface Props {
   allStats: stats[];
 }
 
-const Home: React.FC<Props> = ({ allStats }) => {
-  const cardStats = allStats.filter((item) => item.Region === "Total");
+const Home: React.FC<Props> = ({allStats}) => {
+  const cardStats = allStats.filter((item) => item.Region === 'Total');
 
   return (
     <>
@@ -34,9 +33,9 @@ const Home: React.FC<Props> = ({ allStats }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const URL =
-    "https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto76/vacunacion.csv";
+    'https://raw.githubusercontent.com/MinCiencia/Datos-COVID19/master/output/producto76/vacunacion.csv';
 
-  const { data } = await axios(URL);
+  const {data} = await axios(URL);
   const dataInJson = csvToJSON(data);
   const newData = joinJsonintoDataForTable(dataInJson);
 

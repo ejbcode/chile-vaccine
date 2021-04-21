@@ -1,8 +1,11 @@
-import styles from "./CardSection.module.scss";
-import { formatingDate } from "../../utils/formatingDate";
+import {formatingDate} from '../../utils/formatingDate';
+import {formatingNumber} from '../../utils/formatingNumber';
+// import {formatingNumber} from '../../utils/formatingNumber';
+
+import styles from './CardSection.module.scss';
 
 interface cardStat {
-  Region: "Total";
+  Region: string;
   firstDose: number;
   lastDate: string;
   objectPopulation: number;
@@ -13,11 +16,8 @@ interface Props {
   cardStats: cardStat[];
 }
 
-const CardSection: React.FC<Props> = ({ cardStats }) => {
-  const { firstDose, objectPopulation, secondDose, lastDate } = cardStats[0];
-  const formatNumber = (number: number) => {
-    return new Intl.NumberFormat("es-ES").format(number);
-  };
+const CardSection: React.FC<Props> = ({cardStats}) => {
+  const {firstDose, secondDose, lastDate} = cardStats[0];
   const totalVaccine = firstDose * 1 + secondDose * 1;
   const percPopulation = ((firstDose / 15200376) * 100).toFixed(2);
 
@@ -27,25 +27,25 @@ const CardSection: React.FC<Props> = ({ cardStats }) => {
       <p>Ultima actualización: {formatingDate(lastDate)}</p>
       <div className={styles.listofcards}>
         <div className={styles.card}>
-          <img src="./image/icon2.png" alt="icono" />
+          <img alt="icono" src="./image/icon2.png" />
 
-          <h5 className={styles.cardNumber}>{formatNumber(firstDose)}</h5>
+          <h5 className={styles.cardNumber}>{formatingNumber(firstDose)}</h5>
           <div className={styles.cardTitle}>Vacunados con una dosis</div>
         </div>
         <div className={styles.card}>
-          <img src="./image/icon1.png" alt="icono" />
-          <h5 className={styles.cardNumber}>{formatNumber(secondDose)}</h5>
+          <img alt="icono" src="./image/icon1.png" />
+          <h5 className={styles.cardNumber}>{formatingNumber(secondDose)}</h5>
           <div className={styles.cardTitle}>Vacunados con dos dosis</div>
         </div>
 
         <div className={styles.card}>
-          <img src="./image/icon0.png" alt="icono" />
-          <h5 className={styles.cardNumber}>{formatNumber(totalVaccine)}</h5>
+          <img alt="icono" src="./image/icon0.png" />
+          <h5 className={styles.cardNumber}>{formatingNumber(totalVaccine)}</h5>
           <div className={styles.cardTitle}>Personas Vacunadas</div>
         </div>
 
         <div className={styles.card}>
-          <img src="./image/3.png" alt="icono" />
+          <img alt="icono" src="./image/3.png" />
           <h5 className={styles.cardNumber}>{percPopulation}%</h5>
           <div className={styles.cardTitle}>Población vacunada</div>
         </div>

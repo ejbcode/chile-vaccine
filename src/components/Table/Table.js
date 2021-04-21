@@ -1,6 +1,6 @@
-import InsideTable from "./InsideTable";
+import InsideTable from './InsideTable';
 
-const Table = ({ allStats }) => {
+const Table = ({allStats}) => {
   return (
     <section>
       <h2>Distribución Regional en el país</h2>

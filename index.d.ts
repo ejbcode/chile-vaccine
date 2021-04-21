@@ -3,8 +3,8 @@ interface stats {
   firstDose: number;
   objectPopulation: number;
   secondDose: number;
-
+  lastDate: string;
 }
 interface Props {
-  allStats: stats[]
+  allStats: stats[];
 }

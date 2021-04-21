@@ -1,20 +1,24 @@
 {
   "workbench.colorCustomizations": {
     "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.activeBackground": "#5c3fff",
-    "titleBar.inactiveBackground": "#5c3fff99",
-    "activityBar.activeBackground": "#8772ff",
-    "activityBar.activeBorder": "#ffae9f",
-    "activityBar.background": "#8772ff",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#ffae9f",
+    "titleBar.activeBackground": "#203baa",
+    "titleBar.inactiveBackground": "#203baa99",
+    "activityBar.activeBackground": "#284ad5",
+    "activityBar.activeBorder": "#e15e78",
+    "activityBar.background": "#284ad5",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#e15e78",
     "activityBarBadge.foreground": "#15202b",
-    "statusBar.background": "#5c3fff",
+    "statusBar.background": "#203baa",
     "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#8772ff",
+    "statusBarItem.hoverBackground": "#284ad5",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#5c3fff",
+  "peacock.color": "#203BAA",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
 
 }

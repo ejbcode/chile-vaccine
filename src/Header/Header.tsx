@@ -1,4 +1,4 @@
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 
 const App: React.FC = () => {
   return (
@@ -7,12 +7,12 @@ const App: React.FC = () => {
         <div className={styles.text}>
           <h1>Chile Vacuna</h1>
           <p>
-            Consulta en tiempo real las vacunas contra el Covid-19 que se
-            aplicaron por regiones y en el país
+            Consulta en tiempo real las vacunas contra el Covid-19 que se aplicaron por regiones y
+            en el país
           </p>
         </div>
         <div className={styles.imageSection}>
-          <img src="./image/vaccine.png" alt="icono" />
+          <img alt="icono" src="./image/vaccine.png" />
         </div>
       </div>
     </header>
