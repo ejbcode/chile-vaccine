@@ -11,6 +11,7 @@ export const COLUMNS = [
   {
     Header: '1era Dosis',
     accessor: 'firstDose',
+    Cell: (props) => formatingNumber(props.value),
     Footer: function Foot(data) {
       const total = useMemo(() => data.rows.reduce((sum, row) => row.values.firstDose + sum, 0), [
         data.rows,
@@ -22,24 +23,27 @@ export const COLUMNS = [
   {
     Header: 'Población Objetivo',
     accessor: 'objectPopulation',
+    Cell: (props) => formatingNumber(props.value),
     Footer: function Foot(data) {
       const total = useMemo(
         () => data.rows.reduce((sum, row) => row.values.objectPopulation + sum, 0),
         [data.rows],
       );
 
-      return <>{total}</>;
+      return <>{formatingNumber(total)}</>;
     },
   },
   {
     Header: '2da Dosis',
     accessor: 'secondDose',
+    Cell: (props) => formatingNumber(props.value),
+
     Footer: function Foot(data) {
       const total = useMemo(() => data.rows.reduce((sum, row) => row.values.secondDose + sum, 0), [
         data.rows,
       ]);
 
-      return <>{total}</>;
+      return <>{formatingNumber(total)}</>;
     },
   },
 ];

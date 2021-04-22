@@ -72,7 +72,7 @@ function InsideTable({DATA}) {
           <tr {...group.getFooterGroupProps()}>
             {group.headers.map((column) => (
               <td className={styles.totales} {...column.getFooterProps()}>
-                s{column.render('Footer')}c s{column.render('Footer')}c
+                {column.render('Footer')}
               </td>
             ))}
           </tr>

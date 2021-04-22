@@ -40,10 +40,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const newData = joinJsonintoDataForTable(dataInJson);
 
   return {
-    revalidate: 43200,
     props: {
       allStats: newData,
     },
+    revalidate: 3600,
   };
 };
 export default Home;
