@@ -1,0 +1,99 @@
+.table {
+  background: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #111;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  max-width: 1000px;
+  min-width: 700px;
+  box-shadow: 4px 6px 5px -2px rgba(0, 0, 0, 0.21);
+}
+
+.table th {
+  border-bottom: 2px solid #555;
+  border-right: 1px solid #ccc;
+  padding: 4px;
+}
+
+.table tr {
+  background: #fff;
+}
+
+.totales {
+  background-color: #e2e2e2;
+  border-right: 1px solid #eee;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  background-color: #e2e2e2;
+  padding: 6px 0;
+}
+
+.table tr:nth-child(even) {
+  background-color: #dfdfdf;
+}
+
+.table tbody > tr > td {
+  border-right: 1px solid #eee;
+  text-align: right;
+  text-align: center;
+
+  padding: 4px 2px 4px;
+}
+
+.table tbody > tr > td:first-child {
+  font-weight: bold;
+}
+
+.table tbody > tr > td:last-child {
+  border-right: 0;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #333;
+}
+
+.table thead th:hover {
+  background-color: #d2effd;
+}
+
+.table tbody tr:hover {
+  background-color: #6cd0ff;
+  cursor: pointer;
+}
+
+.table .mobileData {
+  display: none;
+}
+
+.table .mobileData span {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .table tr td:not(:first-child):not(.mobileData) {
+    display: none;
+  }
+
+  .table tr td:first-child {
+    text-align: center;
+  }
+
+  .table tr th {
+    display: none;
+  }
+
+  .table .mobileData {
+    display: block;
+  }
+
+  .totales {
+    display: none;
+  }
+  .table tbody > tr > td:first-child {
+    font-size: 1.5rem;
+  }
+}
